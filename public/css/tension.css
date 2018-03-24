@@ -129,7 +129,6 @@ form .btn-action:hover {
   These styles are for the home page elements
   Found at: views/home.pug
 */
-
 .home-page {
   background-color: #FFFFFF;
 }
@@ -181,6 +180,9 @@ form .btn-action:hover {
   font-size: 26px;
   text-align: center;
 }
+.bottom-navbar .navbar-icons .navbar-icon:hover {
+  cursor: pointer;
+}
 .first {
   margin-left: 0;
   color: #000000;
@@ -190,7 +192,59 @@ form .btn-action:hover {
   font-size: 26px;
   text-align: center;
 }
-
+.first:hover {
+  cursor: pointer;
+}
+.container {
+  margin-top: 50px;
+}
+.container .articles-container .article-container-header {
+  font-family: Andale Mono;
+  color: #D3D3D3;
+  font-size: 35px;
+  text-align: center;
+}
+.container .articles-container {
+  max-width: 80%;
+  margin: 0 auto;
+}
+.container .articles-container .preview {
+  width: 100%;
+  overflow: hidden;
+  height: 50%;
+  position: relative;
+}
+.container .articles-container .preview .featured-image {
+  max-width: 100%;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.container .articles-container .preview:hover .featured-image {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.container .articles-container .preview .ellipses {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  z-index: 1000;
+}
+.container .articles-container .preview .ellipses .article-title {
+  font-family: Avenir;
+  color: #FFFFFF;
+  font-size: 35px;
+}
+.container .articles-container .preview .ellipses .article-excerpt p {
+  font-family: Avenir;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.container .articles-container .whitespace {
+  width: 100%;
+  height: 65px;
+}
 /* Upload Page Styles
   These styles are for the upload page elements
   Found at: views/upload.pug
@@ -233,7 +287,7 @@ form .btn-action:hover {
   color: #FFFFFF;
 }
 /* Article create/edit Page Styles
-  These styles are for the upload page elements
+  These styles are for the article creation/editing page elements
   Found at: views/publish.pug and views/edit-article.pug
 */
 .article-create-container {
@@ -288,4 +342,40 @@ form .btn-action:hover {
   color: #505050;
   border: 2px solid #505050;
   cursor: pointer;
+}
+/* Article page Styles
+  These styles are for the article viewing page elements
+  Found at: views/article.pug
+*/
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  background-color: #000000;
+}
+.navbar .navbar-action {
+  font-size: 20px;
+  color: #FFFFFF;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+}
+.article {
+  margin-top: 30px;
+}
+.article .article-header {
+  width: 100%;
+  height: 50%;
+}
+.article .article-header .article-featured-image {
+  width: 100%;
+  height: 100%;
+}
+.article .article-header .ellipses-article-header {
+  position: absolute;
+  z-index: 1000;
+  left: 20px;
+  bottom: 20px;
 }

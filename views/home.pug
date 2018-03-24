@@ -6,6 +6,9 @@ html
 
     link(rel='stylesheet' type='text/css' href='/css/tension.css')
     link(rel='stylesheet' type='text/css' href='/css/mdi.css')
+
+    script(src='/js/jquery.js')
+    script(src='/js/tabs.js')
   body
     nav.nav-header
       .logo Tension
@@ -17,73 +20,87 @@ html
           span.mdi.mdi-login
     .container
       .articles-container#politics
-        .article-container-header
-          
+        br
+        .article-container-header Politics
+        br
+        br
+        br
         each article, i in articles
           if article.category =='Politics'
             .preview
               img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
-      .articles-container#sports
+      .articles-container#sports(style='display:none')
         each article, i in articles
           if article.category =='Sports'
             .preview
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
-      .articles-container#technology
+      .articles-container#technology(style='display:none')
         each article, i in articles
           if article.category =='Technology'
             .preview
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
-      .articles-container#finance
+      .articles-container#finance(style='display:none')
         each article, i in articles
           if article.category =='Finance'
             .preview
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
-      .articles-container#entertainment
+      .articles-container#entertainment(style='display:none')
         each article, i in articles
           if article.category =='Entertainment'
             .preview
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
-      .articles-container#gaming
+      .articles-container#gaming(style='display:none')
         each article, i in articles
           if article.category =='Gaming'
             .preview
-              a.article-title(href='/articles/'+article._id)= article.headline
-              .article-excerpt
-                p= article.excerpt
-              a.article-continue(href='/articles/'+article._id) Continue Reading
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
+              .ellipses
+                a.article-title(href='/articles/'+article._id)= article.headline
+                .article-excerpt
+                  p= article.excerpt
+                a.article-continue(href='/articles/'+article._id) Continue Reading
             .whitespace
     .bottom-navbar(align='center')
       .navbar-icons(align='center')
-        a.first(href='#politics')
+        a.first(onclick="openTab('politics')")
           span.mdi.mdi-flag
-        a.navbar-icon(href='#sports')
+        a.navbar-icon(onclick="openTab('sports')")
           span.mdi.mdi-soccer
-        a.navbar-icon(href='#technology')
+        a.navbar-icon(onclick="openTab('technology')")
           span.mdi.mdi-console-line
-        a.navbar-icon(href='#finance')
+        a.navbar-icon(onclick="openTab('finance')")
           span.mdi.mdi-bank
-        a.navbar-icon(href='#entertainment')
+        a.navbar-icon(onclick="openTab('entertainment')")
           span.mdi.mdi-television-classic
-        a.navbar-icon(href='#gaming')
+        a.navbar-icon(onclick="openTab('gaming')")
           span.mdi.mdi-google-controller

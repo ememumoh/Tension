@@ -10,7 +10,7 @@ html
     script(src='/js/delete.js')
   body
     .navbar
-      a.navbar-action(href='/')
+      a.navbar-action(href='/home')
         span.mdi.mdi-arrow-left
     .article
       .article-header
@@ -18,8 +18,10 @@ html
           if user.isVerified && user.usertype == 'Publisher' && user.id == article.author
             a(href='#modal')
               span.mdi.mdi-chevron-down
-        img(src=article.featuredImage alt=article.headline)
-        p.article-heading= article.headline
-        p.srticle-author #{author}
+        img.article-featured-image(src='/uploads/'+article.featuredImage alt=article.headline)
+        .ellipses-article-header
+          p.article-heading= article.headline
+          p.srticle-author #{author}
         br
-        article=article.content
+      article=article.content
+    #modal
