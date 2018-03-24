@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title= article.headline
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(href='/css/tension.css' rel='stylesheet' type='text/css')
+    link(href='/css/mdi.css' rel='stylesheet' type='text/css')
+
+    script(src='/js/jquery.js')
+    script(src='/js/delete.js')
+  body
+    .navbar
+      a.navbar-action(href='/')
+        span.mdi.mdi-arrow-left
+    .article
+      .article-header
+        if user
+          if user.isVerified && user.usertype == 'Publisher' && user.id == article.author
+            a(href='#modal')
+              span.mdi.mdi-chevron-down
+        img(src=article.featuredImage alt=article.headline)
+        p.article-heading= article.headline
+        p.srticle-author #{author}
+        br
+        article=article.content

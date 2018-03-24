@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Login | Tension
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(rel='stylesheet' type='text/css' href='/css/tension.css')
+  body.form-page
+    .form(align='center')
+      p.form-header Log In | 
+        span.logo Tension
+      form(method='post' action='/users/login')
+        input.form-input(placeholder='Your username' name='username' type='text' required)
+        input.form-input(placeholder='Your password' name='password' type='password' required)
+        button.btn-action(type='submit') Log In
+      p.alternative Don't have an account? 
+        a.alternative-link(href='/users/register') Sign up.

@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Upload File | Tension
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(href='/css/tension.css' rel='stylesheet' type='text/css')
+  body.upload-page(align='center')
+    .upload-container
+      p.upload-banner Upload files to 
+        span.logo Tension
+      .progress
+        .progress-bar(role='progressbar')
+      button.upload-button.action-button Upload file(s)
+    input#upload-input(type='file' name='uploads[]' multiple='multiple')
+    script(src='/js/jquery.js')
+    script(src='/js/upload.js')

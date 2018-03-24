@@ -1,0 +1,253 @@
+/* This is the custom CSS file used by Tension.
+  Created by Oluwakorede Fashokun on Sunday 18th March, 2018 at 7:51 PM.
+  Under MIT License
+  koredefashokun@gmail.com
+*/
+a article p div h1 h2 h3 h4 h5 h6 button input {
+  font-family: Avenir;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Welcome Page Styles
+  These styles are for the welcome page elements
+  Found at: views/index.pug
+*/
+.welcome-page {
+  background-color: #000000;
+}
+.welcome-container {
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: 20%
+}
+.welcome-container .welcome-banner {
+  font-size: 60px;
+  color: #FFFFFF;
+  font-family: Avenir;
+}
+.welcome-banner .logo {
+  color: #505050;
+}
+.welcome-container .action-button-container {
+  margin-top: 20px;
+}
+.welcome-container .action-button-container .action-button {
+  background-color: #505050;
+  color: #FFFFFF;
+  width: 100px;
+  height: 35px;
+  text-transform: uppercase;
+  border: none;
+  font-family: Andale Mono;
+  font-size: 16px;
+}
+.welcome-container .action-button-container .action-button:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #505050;
+  cursor: pointer;
+}
+
+/* Login/Register Page Styles
+  These styles are for the login/register pages elements
+  Found at: views/login.pug and views/register.pug
+*/
+
+.form-page {
+  background-color: #000000;
+}
+.form {
+  max-width: 70%;
+  margin-top: 20%;
+  margin: 0 auto;
+  height: 50%
+}
+.form .form-input {
+  width: 100%;
+  height: 35px;
+  background-color: #505050;
+  margin-bottom: 10px;
+  border: none;
+  padding-left: 10px;
+  font-family: Avenir;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+.form .form-header {
+  font-size: 50px;
+  color: #FFFFFF;
+  font-family: Avenir;
+}
+.form .form-header .logo {
+  color: #505050;
+}
+form select {
+  width: 101.25%;
+  height: 35px;
+  background-color: #505050;
+  margin-bottom: 10px;
+  border: none;
+  padding-left: 10px;
+  font-family: Avenir;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+form .btn-action {
+  background-color: #505050;
+  color: #FFFFFF;
+  width: 100px;
+  height: 35px;
+  text-transform: uppercase;
+  border: none;
+  font-family: Andale Mono;
+  font-size: 15px;
+  margin-top: 10px;
+}
+form .btn-action:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #505050;
+  cursor: pointer;
+}
+.form .alternative {
+  font-family: Avenir;
+  font-size: 14px;
+  color: #D3D3D3;
+  margin-top: 10px;
+}
+.form .alternative .alternative-link {
+  color: #FFFFFF;
+}
+
+/* Home Page Styles
+  These styles are for the home page elements
+  Found at: views/home.pug
+*/
+
+.home-page {
+  background-color: #FFFFFF;
+}
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background-color: #000000;
+  padding: 10px;
+}
+.nav-header .logo {
+  margin-top: 7px;
+  font-family: Andale Mono;
+  font-size: 21px;
+  color: #FFFFFF;
+  margin: 0 auto;
+  text-align: center;
+}
+.bottom-navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  width: 100%;
+  background-color: #FFFFFF;
+  /* border: 1px solid #000000; */
+  border-top: 1px solid #000000;
+  border-left: none;
+}
+.bottom-navbar .navbar-icons {
+  margin: 0 auto;
+  max-width: 75%;
+}
+.bottom-navbar .navbar-icons .navbar-icon {
+  color: #000000;
+  text-decoration: none;
+  float: left;
+  margin-top: 0.75%;
+  margin-left: 16.66666666667%;
+  font-size: 26px;
+  text-align: center;
+}
+.first {
+  margin-left: 0;
+  color: #000000;
+  text-decoration: none;
+  float: left;
+  margin-top: 0.75%;
+  font-size: 26px;
+  text-align: center;
+}
+
+/* Upload Page Styles
+  These styles are for the upload page elements
+  Found at: views/upload.pug
+*/
+.upload-page {
+  background-color: #000000;
+}
+.upload-page .upload-container {
+  max-width: 75%;
+  margin: 0 auto;
+}
+.upload-page .upload-container .upload-banner {
+  font-family: Avenir;
+  font-size: 50px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.upload-page .upload-container .upload-banner .logo {
+  color: #505050;
+}
+.upload-page .upload-container .action-button {
+  background-color: #505050;
+  color: #FFFFFF;
+  width: 150px;
+  height: 35px;
+  text-transform: uppercase;
+  border: none;
+  font-family: Andale Mono;
+  font-size: 15px;
+  margin-top: 10px;
+}
+.upload-page .upload-container .action-button:hover {
+  background-color: transparent;
+  color: #FFFFFF;
+  border: 2px solid #505050;
+  cursor: pointer;
+}
+.upload-page #upload-input {
+  margin-top: 10px;
+  color: #FFFFFF;
+}
+/* Article create/edit Page Styles
+  These styles are for the upload page elements
+  Found at: views/publish.pug and views/edit-article.pug
+*/
+.article-create-container {
+  width: 87.5%;
+  overflow-y: scroll;
+  padding-top: 20px;
+}
+.article-create-container .article-create-form-header {
+  font-size: 50px;
+  font-family: Avenir;
+  color: #000000;
+}
+.article-create-container .article-create-form-header .logo {
+  color: #505050;
+}
+.article-create-container .article-form {
+  width: 100%; /* Take up all available space */
+}
+.article-create-container .article-form .article-create-form-input {
+  width: 100%;
+  height: 40px;
+  border: none;
+  color: #000000;
+  font-family: Andale Mono;
+  font-size: 30px;
+}

@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title Register | Tension
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(rel='stylesheet' type='text/css' href='/css/tension.css')
+  body.form-page
+    .form(align='center')
+      p.form-header Register | 
+        span.logo Tension
+      form(method='post' action='/users/login')
+        input.form-input(placeholder='Your first name' name='firstname' type='text' required)
+        input.form-input(placeholder='Your last name' name='lastname' type='text' required)
+        input.form-input(placeholder='Your email address' name='email' type='email' required)
+        input.form-input(placeholder='Your username' name='username' type='text' required)
+        select(placeholder='Your usertype' name='usertype' type='text' required)
+          option User
+          option Admin
+        input.form-input(placeholder='Your password' name='password' type='password' required)
+        input.form-input(placeholder='Confirm your password' name='confirmpassword' type='password' required)
+        button.btn-action(type='submit') Register
+      p.alternative Already have an account? 
+        a.alternative-link(href='/users/login') Log in.

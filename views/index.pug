@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Welcome to Tension
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(rel='stylesheet' type='text/css' href='/css/tension.css')
+  body.welcome-page(align='center')
+    .welcome-container(align='center')
+      .welcome-banner(align='center') Welcome to 
+        span.logo Tension
+      .action-button-container
+        a(href='/users/register')
+          button.action-button Sign Up
+        span &nbsp; &nbsp; &nbsp; &nbsp;
+        a(href='/users/login')
+          button.action-button Log In
