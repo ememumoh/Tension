@@ -10,16 +10,19 @@ html
     nav.nav-header
       .logo Tension
       if user
-        a(href='/users/logout')
+        a.nav-header-action(href='/users/logout')
           span.mdi.mdi-logout
       if !user
-        a(href='/users/login')
+        a.nav-header-action(href='/users/login')
           span.mdi.mdi-login
     .container
       .articles-container#politics
+        .article-container-header
+          
         each article, i in articles
           if article.category =='Politics'
             .preview
+              img.featured-image(src='/uploads/'+article.featuredImage alt=article.featuredImage)
               a.article-title(href='/articles/'+article._id)= article.headline
               .article-excerpt
                 p= article.excerpt

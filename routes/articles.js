@@ -47,7 +47,7 @@ router.post('/publish', function(req, res){
         return;
       } else {
         req.flash('success','Article Added!');
-        res.redirect('/');
+        res.redirect('/home');
       }
     });
   }

@@ -1,30 +1,32 @@
 doctype html
-  html
-    head
-      title
-        if user
-          if user.usertype=='Admin'
-            Publish Article | Tension
-          User not authorized
-      meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
-      link(rel='stylesheet' type='text/css' href='/css/tension.css')
-    body(align='center')
+html
+  head
+    title
       if user
         if user.usertype=='Admin'
-        .article-create-container
-          .article-form
-            form.article-main-form(method='post' action='/articles/publish')
-              input.article-create-form-input(name='headline' type='text' placeholder='Article Headline' required)
-              hr
-              input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' required)
-              textarea.article-create-form-textarea(name='content' type='text' placeholder='Your article\'s content' required)
-              textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' required)
-              select(name='category')
-                option Poliics
-                option Sports
-                option Technology
-                option Finance
-                option Entertainment
-                option Gaming
-        script(src='/js/jquery.js')
-        script(src='/js/tinymce.js')
+          Publish Article | Tension
+        User not authorized
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+    link(rel='stylesheet' type='text/css' href='/css/tension.css')
+  body(align='center')
+    if user
+      if user.usertype=='Admin'
+      .article-create-container(align='center')
+        .article-form
+          form.article-main-form(method='post' action='/articles/publish')
+            input.article-create-form-input(name='headline' type='text' placeholder='Article Headline' required)
+            hr
+            input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' required)
+            hr
+            textarea.article-create-form-textarea(name='content' type='text' placeholder='Your article\'s content' required)
+            textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' required)
+            select(name='category')
+              option Politics
+              option Sports
+              option Technology
+              option Finance
+              option Entertainment
+              option Gaming
+            button.article-create-form-button Publish
+      script(src='/js/jquery.js')
+      script(src='/js/tinymce.js')
