@@ -1,11 +1,10 @@
 doctype html
 html
   head
-    title
-      if user
-        if user.usertype=='Admin'
-          Publish Article | Tension
-        User not authorized
+    if user
+      if user.usertype=='Admin'
+        title Publish Article | Tension
+      title User not authorized
     meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
     link(rel='stylesheet' type='text/css' href='/css/tension.css')
   body(align='center')

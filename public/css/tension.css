@@ -177,13 +177,13 @@ form .btn-action:hover {
   float: left;
   margin-top: 0.75%;
   margin-left: 16.66666666667%;
-  font-size: 26px;
+  font-size: 25px;
   text-align: center;
 }
 .bottom-navbar .navbar-icons .navbar-icon:hover {
   cursor: pointer;
 }
-.first {
+.bottom-navbar .navbar-icons .first {
   margin-left: 0;
   color: #000000;
   text-decoration: none;
@@ -211,7 +211,7 @@ form .btn-action:hover {
 .container .articles-container .preview {
   width: 100%;
   overflow: hidden;
-  height: 50%;
+  height: 40%;
   position: relative;
 }
 .container .articles-container .preview .featured-image {
@@ -229,7 +229,7 @@ form .btn-action:hover {
   position: absolute;
   left: 10px;
   bottom: 10px;
-  z-index: 1000;
+  z-index: 1;
 }
 .container .articles-container .preview .ellipses .article-title {
   font-family: Avenir;
@@ -239,6 +239,11 @@ form .btn-action:hover {
 .container .articles-container .preview .ellipses .article-excerpt p {
   font-family: Avenir;
   color: #FFFFFF;
+  font-size: 14px;
+}
+.container .articles-container .preview .ellipses .article-continue {
+  color: #FFFFFF;
+  font-family: Andale Mono;
   font-size: 14px;
 }
 .container .articles-container .whitespace {
@@ -363,19 +368,27 @@ form .btn-action:hover {
   left: 5px;
 }
 .article {
-  margin-top: 30px;
+  margin-top: 70px;
+  max-width: 90%;
+  margin: 0 auto;
 }
 .article .article-header {
   width: 100%;
   height: 50%;
+  margin-top: 40px;
 }
 .article .article-header .article-featured-image {
   width: 100%;
   height: 100%;
 }
 .article .article-header .ellipses-article-header {
-  position: absolute;
-  z-index: 1000;
-  left: 20px;
-  bottom: 20px;
+  margin-top: 20px;
+  font-family: Andale Mono;
+}
+.article .article-header .ellipses-article-header .article-heading {
+  font-size: 30px;
+}
+.article .article-content {
+  font-family: Menlo;
+  font-size: 15px;
 }

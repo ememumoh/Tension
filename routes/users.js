@@ -74,7 +74,7 @@ router.post('/register', function(req, res){
 
             // Send the mail
             const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'noreply.kidzgaming@gmail.com', pass: 'Korede12' } });
-            const mailOptions = { from: 'noreply.kidzgaming@gmail.com', to: newUser.email, subject: 'Verify your Vertex Account', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n'};
+            const mailOptions = { from: 'noreply.kidzgaming@gmail.com', to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '?token=' + token.token + '.\n'};
             transporter.sendMail(mailOptions, function (err) {
               if (err) {
                 return res.status(500).send({ msg: err.message });
@@ -82,6 +82,9 @@ router.post('/register', function(req, res){
               res.status(200).send('A verification mail has been sent to ' + newUser.email + '.');
             });
           });
+
+          // Redirect the user to the email confirmation link page
+          res.redirect('/email-verify');
         });
       });
     });
@@ -117,6 +120,38 @@ router.post('/confirmation', function(req, res, next){
           return res.status(500).send({ msg: err.message });
         }
         res.status(200).send('The account has been verified. Please log in.');
+      });
+    });
+  });
+});
+
+// Resend token (if expired)
+router.post('/resend', function (req, res, next) {
+  req.checkBody('email', 'Email is not valid').isEmail();
+  req.checkBody('email', 'Email cannot be blank').notEmpty();
+  req.sanitize('email').normalizeEmail({ remove_dots: false });
+
+  // Check for validation errors    
+  let errors = req.validationErrors();
+  if (errors) return res.status(400).send(errors);
+
+  User.findOne({ email: req.body.email }, function (err, user) {
+    if (!user) return res.status(400).send({ msg: 'We were unable to find a user with that email.' });
+    if (user.isVerified) return res.status(400).send({ msg: 'This account has already been verified. Please log in.' });
+
+    // Create a verification token, save it, and send email
+    const token = new Token({ userId: user._id, token: crypto.randomBytes(16).toString('hex') });
+
+    // Save the token
+    token.save(function (err) {
+      if (err) { return res.status(500).send({ msg: err.message }); }
+
+      // Send the email
+      const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'games360blog@gmail.com', pass: 'Korede12' } });
+      const mailOptions = { from: 'games360blog@gmail.com', to: user.email, subject: 'Verify your Tension account', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + user.email + '?token=' + token.token + '.\n' };
+      transporter.sendMail(mailOptions, function (err) {
+          if (err) { return res.status(500).send({ msg: err.message }); }
+          res.status(200).send('A verification email has been sent to ' + user.email + '.');
       });
     });
   });
