@@ -23,7 +23,7 @@ npm start
 ```
 ## Useful information
 ### Technologies
-This app is a simple MongoDB, Node and Express example; using PUG (Jade) as a templating engine. All CSS in this project are custom and animations are handled using JavaScript
+This app is a simple MongoDB, Node and Express example; using PUG (Jade) as a templating engine. All CSS in this project are custom and animations are handled using jQuery.
 ### Development disclaimer
 It is noteworthy that as of today, 25th March, 2018; this app is still in development; and as such, you may encounter bugs from time to time. Stick around for v1!
 ## Features
