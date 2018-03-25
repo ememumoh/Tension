@@ -73,7 +73,7 @@ router.post('/register', function(req, res){
             }
 
             // Send the mail
-            const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'noreply.kidzgaming@gmail.com', pass: 'Korede12' } });
+            const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_PASSWORD } });
             const mailOptions = { from: 'noreply.kidzgaming@gmail.com', to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '?token=' + token.token + '.\n'};
             transporter.sendMail(mailOptions, function (err) {
               if (err) {
