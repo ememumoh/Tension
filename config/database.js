@@ -1,4 +1,4 @@
 module.exports = {
-  database:'mongodb://localhost:27017/tension',
-  secret: 'imsotense'
+  database: process.env.DB_URI,
+  secret: process.env.SECRET
 }
