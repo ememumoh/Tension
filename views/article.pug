@@ -8,6 +8,7 @@ html
 
     script(src='/js/jquery.js')
     script(src='/js/delete.js')
+    script(src='/js/modal.js')
   body
     .navbar
       a.navbar-action(href='/home')
@@ -16,7 +17,7 @@ html
       .article-header
         if user
           if user.isVerified && user.usertype == 'Publisher' && user.id == article.author
-            a(href='#modal')
+            a.article-modal-open(href='#modal')
               span.mdi.mdi-chevron-down
         img.article-featured-image(src='/uploads/'+article.featuredImage alt=article.headline)
         .ellipses-article-header
@@ -24,4 +25,15 @@ html
           p.srticle-author #{author}
         br
       article.article-content=article.content
-    #modal
+    #modal.article-modal(style='display:none')
+      .article-modal-header
+        .article-modal-header-text Article Settings
+      .article-modal-content
+        a.article-modal-link-holder(href='/articles/edit/'+article._id)
+          .article-modal-link
+            span.mdi.mdi-pencil
+            p Edit Article
+        a.article-modal-link-holder(href='#' data-id=article._id)
+          .article-modal-link
+            span.mdi.mdi-delete
+            p Delete Article
