@@ -83,7 +83,7 @@ router.post('/edit/:id', function(req, res){
       return;
     } else {
       req.flash('success', 'Article Updated!');
-      res.redirect('/');
+      res.redirect('/home');
     }
   });
 });
@@ -115,7 +115,8 @@ router.get('/:id', function(req, res){
     User.findById(article.author, function(err, user){
       res.render('article', {
         article:article,
-        author: user.fullname
+        author: user.fullname,
+        content: article.content
       });
     });
   });

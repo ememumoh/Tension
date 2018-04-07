@@ -16,24 +16,26 @@ html
     .article
       .article-header
         if user
-          if user.isVerified && user.usertype == 'Publisher' && user.id == article.author
-            a.article-modal-open(href='#modal')
+          if user.id == article.author
+            a.article-modal-open
               span.mdi.mdi-chevron-down
         img.article-featured-image(src='/uploads/'+article.featuredImage alt=article.headline)
         .ellipses-article-header
           p.article-heading= article.headline
-          p.srticle-author #{author}
+          p.article-author #{author}
         br
-      article.article-content=article.content
-    #modal.article-modal(style='display:none')
+      article.article-content !{content}
+    .article-modal
       .article-modal-header
         .article-modal-header-text Article Settings
-      .article-modal-content
+        a.article-modal-close(href='/home')
+          span.mdi.mdi-window-close
+      .article-modal-content(align='center')
         a.article-modal-link-holder(href='/articles/edit/'+article._id)
           .article-modal-link
             span.mdi.mdi-pencil
             p Edit Article
-        a.article-modal-link-holder(href='#' data-id=article._id)
+        a.article-modal-link-holder.delete-article(href='#' data-id=article._id)
           .article-modal-link
             span.mdi.mdi-delete
             p Delete Article

@@ -348,7 +348,7 @@ form .btn-action:hover {
   border: 2px solid #505050;
   cursor: pointer;
 }
-/* Article page Styles
+/* Article Page Styles
   These styles are for the article viewing page elements
   Found at: views/article.pug
 */
@@ -364,7 +364,7 @@ form .btn-action:hover {
   font-size: 20px;
   color: #FFFFFF;
   position: fixed;
-  top: 5px;
+  top: 3px;
   left: 5px;
 }
 .article {
@@ -376,6 +376,18 @@ form .btn-action:hover {
   width: 100%;
   height: 50%;
   margin-top: 40px;
+}
+.article .article-modal-open {
+  position: absolute;
+  right: 5px;
+  top: 2px;
+  z-index: 1;
+  color: #FFFFFF;
+  font-size: 24px;
+  text-decoration: none;
+}
+.article .article-modal-open:hover {
+  cursor: pointer;
 }
 .article .article-header .article-featured-image {
   width: 100%;
@@ -391,4 +403,51 @@ form .btn-action:hover {
 .article .article-content {
   font-family: Menlo;
   font-size: 15px;
+}
+.article-modal {
+  visibility: hidden;
+  margin: 0 auto;
+  margin-top: 20%;
+  width: 60%;
+  height: 50%;
+}
+.article-modal.active {
+  visibility: visible;
+}
+.article-modal .article-modal-header {
+  width: 100%;
+  height: 35px;
+  background-color: #000000;
+}
+.article-modal .article-modal-header .article-modal-header-text {
+  font-family: Menlo;
+  font-size: 14px;
+  margin-top: 21px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.article-modal .article-modal-header .article-modal-close {
+  font-size: 21px;
+  color: #FFFFFF;
+  text-decoration: none;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.article-modal .article-modal-content {
+  width: 100%;
+  margin-top: 10px;
+  background-color: #FFFFFF;
+}
+.article-modal .article-modal-content .article-modal-link-holder {
+  width: 100px;
+  text-decoration: none;
+}
+.article-modal .article-modal-content .article-modal-link-holder .article-modal-link {
+  font-size: 40px;
+  color: #000000;
+}
+.article-modal .article-modal-content .article-modal-link-holder .article-modal-link p {
+  font-family: Andale Mono;
+  font-size: 20px;
 }

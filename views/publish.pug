@@ -17,7 +17,7 @@ html
             hr
             input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' required)
             hr
-            textarea.article-create-form-textarea(name='content' type='text' placeholder='Your article\'s content' required)
+            textarea.article-create-form-textarea.tinymce(name='content' type='text' placeholder='Your article\'s content' required)
             textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' required)
             select(name='category')
               option Politics
@@ -28,4 +28,5 @@ html
               option Gaming
             button.article-create-form-button Publish
       script(src='/js/jquery.js')
-      script(src='/js/tinymce.js')
+      script(src='/js/plugins/tinymce/tinymce.min.js')
+      script(src='/js/plugins/tinymce/init-tinymce.js')
