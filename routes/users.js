@@ -74,7 +74,11 @@ router.post('/register', function(req, res){
 
             // Send the mail
             const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_PASSWORD } });
+<<<<<<< HEAD
             const mailOptions = { from: process.env.GMAIL_ADDRESS, to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '?token=' + token.token + '.\n'};
+=======
+            const mailOptions = { from: 'noreply.kidzgaming@gmail.com', to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '?token=' + token.token + '.\n'};
+>>>>>>> e16cea2fd64f8c82d042911d16e8a9398097f6f6
             transporter.sendMail(mailOptions, function (err) {
               if (err) {
                 return res.status(500).send({ msg: err.message });
