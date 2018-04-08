@@ -29,6 +29,8 @@ It is noteworthy that as of today, 25th March, 2018; this app is still in develo
 ## Features
 ### User signup, login & email verification
 This app makes use of the Passport.js module to enable user signup and login. Email verification is done using Nodemailer and Crypto.
+### ensureAuthenticated Function
+Auth-protected pages will not open if user is not authenticated. This protects non-authenticated users from viewing certain pages.
 ## License
 MIT Lisence
 ## Author
