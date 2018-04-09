@@ -296,10 +296,11 @@ form .btn-action:hover {
   Found at: views/publish.pug and views/edit-article.pug
 */
 .article-create-container {
-  max-width: 87.5%;
+  max-width: 89%;
   overflow-y: scroll;
   padding-top: 20px;
   margin: 0 auto;
+  overflow-x: hidden;
 }
 .article-create-container .article-create-form-header {
   font-size: 50px;

@@ -13,6 +13,7 @@ html
         .article-create-container
           .article-create-form-header Edit Article | 
             span.logo Tension
+          br
           .article-form
             form.article-main-form(method='post' action='/articles/edit/'+article._id)
               input.article-create-form-input(name='headline' type='text' placeholder='Article Headline' value=article.headline required)
@@ -20,9 +21,9 @@ html
               input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' value=article.featuredImage required)
               hr
               textarea.article-create-form-textarea.tinymce(name='content' type='text' placeholder='Your article\'s content' required)=article.content
+              br
               textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' value=article.excerpt required)=article.excerpt
               button.article-create-form-button Update
         script(src='/js/jquery.js')
         script(src='/js/plugins/tinymce/tinymce.min.js')
         script(src='/js/plugins/tinymce/init-tinymce.js')
-      p You are not authorized to be on this page. If you believe this is a mistake, logout, login and try again.

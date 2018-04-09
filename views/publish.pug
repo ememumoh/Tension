@@ -10,23 +10,27 @@ html
   body(align='center')
     if user
       if user.usertype=='Admin'
-      .article-create-container(align='center')
-        .article-form
-          form.article-main-form(method='post' action='/articles/publish')
-            input.article-create-form-input(name='headline' type='text' placeholder='Article Headline' required)
-            hr
-            input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' required)
-            hr
-            textarea.article-create-form-textarea.tinymce(name='content' type='text' placeholder='Your article\'s content' required)
-            textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' required)
-            select(name='category')
-              option Politics
-              option Sports
-              option Technology
-              option Finance
-              option Entertainment
-              option Gaming
-            button.article-create-form-button Publish
-      script(src='/js/jquery.js')
-      script(src='/js/plugins/tinymce/tinymce.min.js')
-      script(src='/js/plugins/tinymce/init-tinymce.js')
+        .article-create-container(align='center')
+          .article-create-form-header Publish Article | 
+            span.logo Tension
+          br
+          .article-form
+            form.article-main-form(method='post' action='/articles/publish')
+              input.article-create-form-input(name='headline' type='text' placeholder='Article Headline' required)
+              hr
+              input.article-create-form-input(name='featuredImage' type='text' placeholder='File name of featured image' required)
+              hr
+              textarea.article-create-form-textarea.tinymce(name='content' type='text' placeholder='Your article\'s content' required)
+              br
+              textarea.article-create-form-textarea(name='excerpt' type='text' placeholder='Your article\'s excerpt' required)
+              select(name='category')
+                option Politics
+                option Sports
+                option Technology
+                option Finance
+                option Entertainment
+                option Gaming
+              button.article-create-form-button Publish
+        script(src='/js/jquery.js')
+        script(src='/js/plugins/tinymce/tinymce.min.js')
+        script(src='/js/plugins/tinymce/init-tinymce.js')
