@@ -74,7 +74,7 @@ router.post('/register', function(req, res){
 
             // Send the mail
             const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_PASSWORD } });
-            const mailOptions = { from: process.env.GMAIL_ADDRESS, to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '?token=' + token.token + '.\n'};
+            const mailOptions = { from: process.env.GMAIL_ADDRESS, to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '&token=' + token.token + '.\n'};
             transporter.sendMail(mailOptions, function (err) {
               if (err) {
                 return res.status(500).send({ msg: err.message });
@@ -91,11 +91,9 @@ router.post('/register', function(req, res){
   }
 });
 
-router.post('/confirmation', function(req, res, next){
-  req.checkBody('email', 'Email is not valid.').isEmail();
-  req.checkBody('email', 'Email cannot be blank.').notEmpty();
-  req.checkBody('token', 'Token cannot be blank.').notEmpty();
-  req.sanitize('email').normalizeEmail({ remove_dots: false });
+router.post('/confirmation/:token:email', function(req, res, next){
+  const token = req.params.token;
+  const email = req.params.email;
 
   const errors = req.validationErrors();
   if (errors) return res.status(400).send(errors);
