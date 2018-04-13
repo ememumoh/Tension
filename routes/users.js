@@ -91,7 +91,7 @@ router.post('/register', function(req, res){
   }
 });
 
-router.post('/confirmation/:token:email', function(req, res, next){
+router.post('/confirmation?:token&:email', function(req, res, next){
   const token = req.params.token;
   const email = req.params.email;
 
