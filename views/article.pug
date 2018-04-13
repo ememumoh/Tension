@@ -26,17 +26,17 @@ html
       article.article-content !{content}
     if user
       if user.id == article.author
-        .article-modal
+        .article-modal(align='center')
           .article-modal-header
             .article-modal-header-text Article Settings
             a.article-modal-close(href='/home')
               span.mdi.mdi-window-close
           .article-modal-content(align='center')
-            a.article-modal-link-holder(href='/articles/edit/'+article._id)
+            a.article-modal-link-holder.first(href='/articles/edit/'+article._id)
               .article-modal-link
                 span.mdi.mdi-pencil
                 p Edit Article
-            a.article-modal-link-holder.delete-article(href='#' data-id=article._id)
+            a.article-modal-link-holder.second.delete-article(href='#' data-id=article._id)
               .article-modal-link
                 span.mdi.mdi-delete
                 p Delete Article
