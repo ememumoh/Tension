@@ -142,6 +142,7 @@ app.post('/images/upload', function(req, res){
   form.parse(req);
 });
 
+// Home Route
 app.get('/home', function(req, res){
   Article.find({}, function(err, articles){
     if(err){
@@ -154,6 +155,11 @@ app.get('/home', function(req, res){
     }
   });
 });
+
+// Email Verification Confirmation Page
+app.get('/email-verify', function(req, res){
+  res.render('email-verify');
+})
 
 // Route Files
 let articles = require('./routes/articles');

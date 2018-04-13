@@ -84,14 +84,16 @@ router.post('/register', function(req, res){
           });
 
           // Redirect the user to the email confirmation link page
-          res.redirect('/email-verify');
+          // res.redirect('/email-verify', {
+          //   email: newUser.email
+          // });
         });
       });
     });
   }
 });
 
-router.post('/confirmation?:token&:email', function(req, res, next){
+router.post('/confirmation?token=:token&email=:email', function(req, res, next){
   const token = req.params.token;
   const email = req.params.email;
 
