@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $('.delete-article').on('click', function(e){
+  $('.article-delete-link').on('click', function(e){
     $target = $(e.target);
     const id = $target.attr('data-id');
     $.ajax({

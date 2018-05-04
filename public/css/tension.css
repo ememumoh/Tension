@@ -406,55 +406,45 @@ form .btn-action:hover {
   font-size: 15px;
 }
 .article-modal {
-  /* visibility: hidden; */
-  margin: 0 auto;
-  margin-top: 20%;
-  width: 60%;
-  height: 50%;
-}
-.article-modal.active {
-  visibility: visible;
-}
-.article-modal .article-modal-header {
   width: 100%;
-  height: 20px;
-  background-color: #000000;
-  padding: 10px;
-}
-.article-modal .article-modal-header .article-modal-header-text {
-  font-family: Menlo;
-  font-size: 14px;
-  color: #FFFFFF;
-  text-align: center;
-}
-.article-modal .article-modal-header .article-modal-close {
-  font-size: 21px;
-  color: #FFFFFF;
-  text-decoration: none;
-  float: left;
-  margin-top: -20px;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.75);
 }
 .article-modal .article-modal-content {
-  width: 100%;
-  margin-top: 10px;
-  background-color: #FFFFFF;
+  max-width: 700px;
+  width: 90%;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: #000000;
 }
-.article-modal .article-modal-content .article-modal-link-holder {
-  width: 300px;
+.article-modal .article-modal-close {
+  width: 30px;
+  height: 30px;
+  padding-top: 4px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: ease 0.25s all;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  border-radius: 1000px;
+  background: rgba(0,0,0,0.8);
+  font-size: 28px;
+  text-align: center;
+  color: #FFFFFF;
+}
+.article-modal .article-modal-content .article-modal-close:hover{
+  -webkit-transform: translate(50%, -50%) rotate(180deg);
+  transform: translate(50%, -50%) rotate(180deg);
+  background: rgba(0,0,0,1);
   text-decoration: none;
-  float: left;
-}
-.article-modal .article-modal-content .first {
-  margin-left: 10px;
-}
-.article-modal .article-modal-content .second {
-  margin-right: -10px;
-}
-.article-modal .article-modal-content .article-modal-link-holder .article-modal-link {
-  font-size: 40px;
-  color: #000000;
-}
-.article-modal .article-modal-content .article-modal-link-holder .article-modal-link p {
-  font-family: Andale Mono;
-  font-size: 20px;
 }

@@ -1,5 +1,9 @@
 doctype html
 html
   head
-  body
-    p An email has been sent to #{email}. Verify your account by clicking the attached link.
+    title Verify your email | Tension
+    meta(name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    link(href='/css/tension.css' rel='stylesheet' type='text/css')
+  body.email-verify-container
+    p.email-verify-description An email has been sent to #{email}. Verify your account by clicking the attached link.

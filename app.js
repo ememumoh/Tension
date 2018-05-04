@@ -159,7 +159,12 @@ app.get('/home', function(req, res){
 // Email Verification Confirmation Page
 app.get('/email-verify', function(req, res){
   res.render('email-verify');
-})
+});
+
+// Email Verified Confirmation Page
+app.get('/account-verified', function(req, res){
+  res.render('account-verified');
+});
 
 // Route Files
 let articles = require('./routes/articles');

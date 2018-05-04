@@ -94,7 +94,6 @@ router.delete('/:id', function(req, res){
     res.status(500).send();
   }
   let query = {_id:req.params.id}
-
   Article.findById(req.params.id, function(err, article){
     if(article.author != req.user._id){
       res.status(500).send();

@@ -74,34 +74,31 @@ router.post('/register', function(req, res){
 
             // Send the mail
             const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_PASSWORD } });
-            const mailOptions = { from: process.env.GMAIL_ADDRESS, to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + newUser.email + '&token=' + token.token + '.\n'};
+            const mailOptions = { from: process.env.GMAIL_ADDRESS, to: newUser.email, subject: 'Verify your Tension Account', text: 'Hello, ' + newUser.firstname + ' ' + newUser.lastname + '\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/users\/confirmation\/' + token.token + '.\n'};
             transporter.sendMail(mailOptions, function (err) {
               if (err) {
                 return res.status(500).send({ msg: err.message });
               }
-              res.status(200).send('A verification mail has been sent to ' + newUser.email + '.');
+              // Redirect the user to the email verification information page.
+              res.redirect('/email-verify', {
+                email: newUser.email
+              });
             });
           });
-
-          // Redirect the user to the email confirmation link page
-          // res.redirect('/email-verify', {
-          //   email: newUser.email
-          // });
         });
       });
     });
   }
 });
 
-router.post('/confirmation?token=:token&email=:email', function(req, res, next){
-  const token = req.params.token;
-  const email = req.params.email;
+router.get('/confirmation/:token', function(req, res){
+  const { token } = req.params;
 
   const errors = req.validationErrors();
   if (errors) return res.status(400).send(errors);
 
   // Find a matching token
-  Token.findOne({ token: req.body.token }, function(err, token){
+  Token.findOne({ token: token }, function(err, token){
     if (!token) return res.status(400).send({ type: 'not-verified', msg: 'We were unable to find a valid token. Your token may have expired.' });
 
     // If a token is found, find amatching user
@@ -119,14 +116,14 @@ router.post('/confirmation?token=:token&email=:email', function(req, res, next){
         if (err) {
           return res.status(500).send({ msg: err.message });
         }
-        res.status(200).send('The account has been verified. Please log in.');
+        res.redirect('/account-verified');
       });
     });
   });
 });
 
 // Resend token (if expired)
-router.post('/resend', function (req, res, next) {
+router.post('/resend', function (req, res) {
   req.checkBody('email', 'Email is not valid').isEmail();
   req.checkBody('email', 'Email cannot be blank').notEmpty();
   req.sanitize('email').normalizeEmail({ remove_dots: false });
@@ -147,11 +144,11 @@ router.post('/resend', function (req, res, next) {
       if (err) { return res.status(500).send({ msg: err.message }); }
 
       // Send the email
-      const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: 'games360blog@gmail.com', pass: 'Korede12' } });
-      const mailOptions = { from: 'games360blog@gmail.com', to: user.email, subject: 'Verify your Tension account', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/confirmation?email=' + user.email + '?token=' + token.token + '.\n' };
+      const transporter = nodemailer.createTransport({ service: 'Gmail', auth: { user: process.env.GMAIL_ADDRESS, pass: process.env.GMAIL_PASSWORD } });
+      const mailOptions = { from: 'Tension', to: user.email, subject: 'Verify your Tension account', text: 'Hello,\n\n' + 'Please verify your account by clicking the link: \nhttp:\/\/' + req.headers.host + '\/users\/confirmation' + token.token + '.\n' };
       transporter.sendMail(mailOptions, function (err) {
-          if (err) { return res.status(500).send({ msg: err.message }); }
-          res.status(200).send('A verification email has been sent to ' + user.email + '.');
+        if(err){ return res.status(500).send({ msg: err.message }); }
+        res.status(200).send('A verification email has been sent to ' + user.email + '.');
       });
     });
   });

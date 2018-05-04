@@ -6,7 +6,7 @@ Tension is a production-ready publication app; which makes making articles easie
 If you own a blog, a press or media outfit or a publication-based project, Tension makes your web app lightweight, fast and user-friendly; while keeping the clutter away.
 ### Getting Started
 To get started simply run: ```git clone https://github.com/KidzGaming/Tension.git```
-Then, you need to set up a MongoDB database (I recommend mlab.com)
+Then, you need to set up a MongoDB database (I recommend ```mlab.com```)
 To complete the config, you will need to create a .env file in the root of the project, and populate it with the following data:
 ```
 PORT=7550
